@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        function doChange()
+        {
+            let val = $("#source").val();
+            $("#target").text( val );
+            let arr = ["red","green","blue"];
+            let color = arr[parseInt(val.length / 5)];
+            //console.log(color);
+            if(color)
+            {
+                $("#target").css("color", arr[parseInt(val.length / 5)] )
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <input type="text" id="source"  onkeyup="doChange()">
+    <h1 id="target">暂无内容</h1>
+
+</body>
+</html>
