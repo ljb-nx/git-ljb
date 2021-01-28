@@ -1,0 +1,9 @@
+@charset "utf-8";
+/* CSS Document */
+#wrap{width:100;height:auto;} 
+#column{float:left;width:60;} 
+#column1{float:left;width:30;} 
+#column2{float:right;width:30;} 
+#column3{float:right;width:40;} 
+.clear{clear:both;} 
+

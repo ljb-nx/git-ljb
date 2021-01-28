@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>左侧网页</title>
+</head>
+<body>
+	<form name="test9_1">
+		请选择城市：<BR>
+		<select name="select1" multiple="">
+			<Option>云南省
+			<Option>四川省
+			<Option>贵州省                                       
+			<Option>山东省
+			<Option>江苏省
+			<Option>浙江省
+			<Option>安徽省                                       
+			<Option>河南省
+
+		</select><BR>
+		<hr>
+		<input type="Submit" name="" value="提交">
+		<input type="reset" name="" value="重置">
+	</form>
+	<pre>
+	<script language="JavaScript">
+	   document.test9_1.elements[0].options[0].text="昆明市";
+	   document.test9_1.elements[0].options[1].text="成都市";
+	 </script>
+	</pre>
+
+</body>
+</html>

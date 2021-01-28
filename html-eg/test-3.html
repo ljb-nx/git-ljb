@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>右侧网页</title>
+</head>
+<body>
+<Form name="test9_2">
+请输入用户名：
+<Input Type="text" name="text1" Value="" Size=20><BR>
+<HR>
+请选择:
+<Input Type="Checkbox" name="checkbox1" Value="qb">全部信息<BR>
+<Input Type="Checkbox" name="checkbox2" Value="bf">部分信息<BR>
+<Input Type="Checkbox" name="checkbox3" Value="sy">所有城市<br>
+<HR>
+<Input Type="Submit" name="" value="提交">
+<Input Type="reset" name="" value="复位">
+<BR>
+</Form>
+<script language="JavaScript">
+   document.test9_2.elements[0].value="劳动和社会保障";
+   document.test9_2.elements[1].checked=true;
+   document.test9_2.elements[2].checked=true;
+   document.test9_2.elements[3].checked=false;
+</script>
+
+</body>
+</html>

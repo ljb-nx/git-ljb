@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>展示float用法</title>
+
+<style type="text/css">
+#wrap{width:100;height:auto;} 
+#column1{
+	font-size:24px;
+	float:left;
+	width:40;
+	background-color:blue;} 
+#column2{
+	font-size:36px;
+	float:right;
+	width:60;
+	background-color:red;} 
+.clear{clear:both;}
+
+</style>
+
+</head>
+
+<body>
+    <div id="wrap"> 
+        <div id="column1">这里是第一列</div> 
+        <div id="column2">这里是第二列</div> 
+        <br />
+        
+        <div class="clear"></div> /*这是违背web标准意图的，只是想说明在它下面的元素需要清除浮动*/ 
+    </div>
+</body>
+</html>
