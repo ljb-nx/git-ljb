@@ -11,7 +11,7 @@ class Winform(QWidget):
     titleEdit = QLineEdit()
     authorEdit = QLineEdit()
     contentEdit = QTextEdit()
-    button = QPushButton("确  认")
+    button = QPushButton("关  闭")
 
     grid = QGridLayout()
     grid.setSpacing(10)
@@ -22,17 +22,22 @@ class Winform(QWidget):
     grid.addWidget(contentLabel, 3, 0)
     grid.addWidget(contentEdit, 3, 1, 5, 1)
     grid.addWidget(button,8,1)
-    button.clicked().connect(self.show_xx())
+    text2 = contentEdit.toPlainText()
+    text1 = str(text2)
+
+    #contentEdit.textChanged(self.show_xx(text1))
+    button.clicked.connect(self.show_xx('text1'))
 
     self.setLayout(grid)
     self.setGeometry(300, 300, 350, 300)
     self.setWindowTitle('故障申告')
 
-  def show_xx(self):
-    neirong = contentEdit.toPlainText()
-    biaoti = titleEdit.text()
+  def show_xx(self,text):
+    #neirong = winform.contentEdit.toPlainText()
+    #biaoti = titleEdit.text()
     #QMessageBox.information(self, biaoti, neirong, QMessageBox.ok)
-    print(f'neirong is {neirong}')
+    print(f'neirong is {text}')
+    #print("good connect")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
