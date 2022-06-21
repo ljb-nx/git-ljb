@@ -10,7 +10,7 @@ class Winform(QWidget):
   def initUI(self):
     #1创建QGridLayout的实例，并设置窗口的布局
     grid = QGridLayout()
-    self.setLayout(grid)
+
     #2创建按钮的标签列表
     names = ['Cls', 'Back', '', 'Close',
          '7', '8', '9', '/',
@@ -25,8 +25,10 @@ class Winform(QWidget):
         continue
       button = QPushButton(name)
       grid.addWidget(button, *position)
+    self.setLayout(grid)
     self.move(300, 150)
     self.setWindowTitle('网格布局管理例子')
+
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     form = Winform()
