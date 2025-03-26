@@ -1,20 +1,20 @@
 #!/usr/bin/python
-# coding:gbk
+# # coding:utf-8
 
-# ´ò¿ªÎÄ¼þ
+# ï¿½ï¿½ï¿½Ä¼ï¿½
 try:
-    fo = open("CÓïÑÔ¾­µä³ÌÐò100Àý.txt", "r+")
+    fo = open("Cï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½100ï¿½ï¿½.txt", "r+")
 except IOError:
-    print "×¢Òâ£ºÃ»ÓÐ´ËÎÄ¼þ¡£"
-print "ÎÄ¼þÃûÎª: ", fo.name
+    print "×¢ï¿½â£ºÃ»ï¿½Ð´ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½"
+print "ï¿½Ä¼ï¿½ï¿½ï¿½Îª: ", fo.name
 
 str1 = fo.read()
-# print "¶ÁÈ¡µÄ×Ö·û´®: %s" % (str1)
+# print "ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½: %s" % (str1)
 
-y_len = len(str1) #str1´®³¤¶È
+y_len = len(str1) #str1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 i = 0
-start_str = "¡¾"  #ÆðÊ¼´®
-end_str = "³ÌÐò·ÖÎö"  #ÖÕÖ¹´®
+start_str = "ï¿½ï¿½"  #ï¿½ï¿½Ê¼ï¿½ï¿½
+end_str = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"  #ï¿½ï¿½Ö¹ï¿½ï¿½
 
 '''
 print start_str,end_str
@@ -23,7 +23,7 @@ char1 = str1[i:i+2]
 print char1
 '''
 
-#fo1 = open("pythonÓïÑÔ³ÌÐò.txt", "a+")
+#fo1 = open("pythonï¿½ï¿½ï¿½Ô³ï¿½ï¿½ï¿½.txt", "a+")
 
 for i in range(0,y_len):
     char1 = str1[i:i+2]
@@ -36,7 +36,7 @@ for i in range(0,y_len):
         
         continue
 
-# ¹Ø±ÕÎÄ¼þ
+# ï¿½Ø±ï¿½ï¿½Ä¼ï¿½
 fo.close()
 #fo1.close()
 
