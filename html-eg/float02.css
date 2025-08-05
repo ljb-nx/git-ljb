@@ -7,7 +7,7 @@ min-width:200px;/*LCfullwidth CCpadding*/ 
 } 
 .column{ 
 position:relative; 
-float:left; 
+ float:left;
 } 
 #center{ 
 width:100; 
