@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render,HttpResponse,redirect
 from app01 import models
 
@@ -77,15 +78,57 @@ def del_publisher(request):
 def book_list(request):
     if not user_info:
         return redirect('/login/')
-    book_list = models.Book.objects.all()
-    return render(request,'book_list.html',{"book_list":book_list})
+    
+    book_page_num = int(request.GET.get('page_num', 1))  # 用户不传页码默认为1
+    book_list = models.Book.objects.all()  # 获取所有数据
+    
+    '''Paginator 对象'''
+    # 实例化
+    paginator = Paginator(book_list, 5)  # 分页的数据，每页显示十行
+    # print(paginator.count)  # 总条数   500
+    # print(paginator.num_pages)   # 总页数 50
+    # print(paginator.per_page)  # 每页显示条数 10
+    # print(paginator.page_range) # 生成器，next拿一页  range(1,51)
+    # print(paginator.page(1))  # page(1)第一页，()内写几可以拿到的页
+    # 判断页码数和11的关系，布局
+
+    '''Page对象'''
+    try:
+        page = paginator.page(book_page_num)  # 获取当前页
+        # print(page.has_next())  # 判断有没有下一页  True
+        # print(page.next_page_number())  # 下一页页码数  3
+        # print(page.has_previous())  # 判断有没有上一页 True
+        # print(page.previous_page_number())  # 上一页页码 1
+        # print(paginator.object_list)   # 获取该页的所有数据的对象
+    except Exception as e:
+        book_page_num = paginator.num_pages  # 如果没有搜索页设置默认数显示最后一页
+        page = paginator.page(book_page_num)  # 没有搜索页显示最后一页
+    # print(page.number)   # 获取当前页码 2
+
+    if paginator.num_pages > 11:
+        # 开头的判断，如果当前页-5小于1，那么显示1，12
+        if book_page_num - 5 < 1:
+            page_range = range(1, 12)
+        # 末尾的判断，如果当前页+5大于总页码数，回退11
+        elif book_page_num + 5 > paginator.num_pages:
+            page_range = range(paginator.num_pages - 10, paginator.num_pages + 1)
+        # 中间当前页-5，+6
+        else:
+            page_range = range(book_page_num - 5, book_page_num + 6)
+    else:
+        page_range = paginator.page_range  # 如果小于11那么就显示少有的对象
+
+
+
+    # book_list = models.Book.objects.all()
+    return render(request,'book_list.html',locals())
 
 # 新增图书
 def add_book(request):
     if not user_info:
         return redirect('/login/')
     publisher_list = models.Publisher.objects.all()
-    # author_list = models.Author.objects.all()
+   
     author_list = models.Author.objects.all()
 
     if request.method == "POST":
